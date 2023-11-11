@@ -18,8 +18,8 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <title>Ak</title>
       </Head>
+      <title>Ak</title>
       <body>
         <Main />
         <NextScript />
