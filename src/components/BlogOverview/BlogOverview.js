@@ -182,6 +182,7 @@ export default function BlogOverview({ data }) {
                       }`}
                       width={450}
                       height={350}
+                      alt={featuredUpdate?.fields?.blogTitle}
                     />
                     <div className="card-content">
                       {featuredUpdate?.fields?.blogTitle && (
