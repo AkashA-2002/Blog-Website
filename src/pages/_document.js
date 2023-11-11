@@ -19,7 +19,6 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <title>Ak</title>
       <body>
         <Main />
         <NextScript />
