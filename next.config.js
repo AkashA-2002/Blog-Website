@@ -1,7 +1,13 @@
 module.exports = {
   trailingSlash: true,
   images: {
-    domains: ["images.ctfassets.net"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
+        pathname: '**',
+      },
+    ],
   },
   async headers() {
     return [

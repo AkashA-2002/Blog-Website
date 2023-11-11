@@ -2,7 +2,7 @@ import React from 'react'
 import { Client } from '../../ContentfulEntry/ContentfulEntry';
 
 export default function Home({ ctaSection }) {
-  console.log(ctaSection);
+
   return (
     <>
     <h1>Home Page</h1>

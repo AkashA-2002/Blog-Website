@@ -79,7 +79,6 @@ export default function BlogOverview({ data }) {
                 <i class="fa-solid fa-grip"></i>
               </span>
               <Switch.Group as="div" className="toggle-option">
-                {console.log(enabled)}
                 <Switch
                   checked={enabled}
                   onChange={setEnabled}
@@ -106,7 +105,6 @@ export default function BlogOverview({ data }) {
             <>
               <div className="list-card-wrapper">
                 {featuredUpdates?.map((featuredUpdate, index) => {
-                  console.log(featuredUpdate);
                   const featuredImage =
                     featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
                   const bannerImage =
@@ -156,7 +154,6 @@ export default function BlogOverview({ data }) {
           ) : (
             <div className="md:grid md:grid-cols-3 md:gap-8 grid-card-wrapper">
               {featuredUpdates?.map((featuredUpdate, index) => {
-                console.log(featuredUpdate);
                 const featuredImage =
                   featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
                 const bannerImage =
