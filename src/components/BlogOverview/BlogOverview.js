@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -57,7 +58,14 @@ export default function BlogOverview({ data }) {
                 ></div>
                 <div className="blog-featured-content">
                   {blog?.fields?.blogTitle && (
-                    <h1>{blog?.fields?.blogTitle}</h1>
+                    <h1>
+                      <Link
+                        aria-label={blog?.fields?.blogTitle}
+                        href={`/blog/${blog?.fields?.slug}`}
+                      >
+                        {blog?.fields?.blogTitle}
+                      </Link>
+                    </h1>
                   )}
                   {blog?.fields?.miniDescription && (
                     <p className="description">
@@ -195,7 +203,14 @@ export default function BlogOverview({ data }) {
                         ></div>
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
-                            <h4>{featuredUpdate?.fields?.blogTitle}</h4>
+                            <h4>
+                              <Link
+                                aria-label={featuredUpdate?.fields?.blogTitle}
+                                href={`/blog/${featuredUpdate?.fields?.slug}`}
+                              >
+                                {featuredUpdate?.fields?.blogTitle}
+                              </Link>
+                            </h4>
                           )}
                           {featuredUpdate?.fields?.miniDescription && (
                             <p className="card-description">
@@ -224,7 +239,14 @@ export default function BlogOverview({ data }) {
                         ></div>
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
-                            <h4>{featuredUpdate?.fields?.blogTitle}</h4>
+                            <h4>
+                            <Link
+                              aria-label={featuredUpdate?.fields?.blogTitle}
+                              href={`/blog/${featuredUpdate?.fields?.slug}`}
+                            >
+                              {featuredUpdate?.fields?.blogTitle}
+                            </Link>
+                          </h4>
                           )}
                           {featuredUpdate?.fields?.miniDescription && (
                             <p className="card-description">
@@ -276,7 +298,14 @@ export default function BlogOverview({ data }) {
                       />
                       <div className="card-content">
                         {featuredUpdate?.fields?.blogTitle && (
-                          <h4>{featuredUpdate?.fields?.blogTitle}</h4>
+                          <h4>
+                          <Link
+                            aria-label={featuredUpdate?.fields?.blogTitle}
+                            href={`/blog/${featuredUpdate?.fields?.slug}`}
+                          >
+                            {featuredUpdate?.fields?.blogTitle}
+                          </Link>
+                        </h4>
                         )}
                         {featuredUpdate?.fields?.miniDescription && (
                           <p className="card-description">
@@ -306,7 +335,14 @@ export default function BlogOverview({ data }) {
                       />
                       <div className="card-content">
                         {featuredUpdate?.fields?.blogTitle && (
-                          <h4>{featuredUpdate?.fields?.blogTitle}</h4>
+                          <h4>
+                          <Link
+                            aria-label={featuredUpdate?.fields?.blogTitle}
+                            href={`/blog/${featuredUpdate?.fields?.slug}`}
+                          >
+                            {featuredUpdate?.fields?.blogTitle}
+                          </Link>
+                        </h4>
                         )}
                         {featuredUpdate?.fields?.miniDescription && (
                           <p className="card-description">
