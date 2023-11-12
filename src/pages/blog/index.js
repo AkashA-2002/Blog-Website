@@ -1,19 +1,25 @@
 import BlogOverview from '@/components/BlogOverview/BlogOverview'
 import React from 'react'
 import { Client } from '../../../ContentfulEntry/ContentfulEntry';
+import { Layout } from '@/components/Layout/Layout';
 
-export default function blog({blogOverviewData}) {
+export default function blog({blogOverviewData, seoData}) {
   return (
-    <BlogOverview data={blogOverviewData}/>
+    <Layout seoData={seoData}>
+      <BlogOverview data={blogOverviewData}/>
+    </Layout>
   )
 }
 
 export async function getServerSideProps() {
     const res = await Client.getEntries({ content_type: "blogs" });
-    const blogData = res.items;
+    const seo = await Client.getEntry("66IftJNk7Q3PII9mscirYT");
+    const blogData = res?.items;
+    const seoData = seo?.fields;
     return {
         props: {
-            blogOverviewData: blogData,
+            blogOverviewData: blogData || null,
+            seoData: seoData || null,
         }
     }
 }

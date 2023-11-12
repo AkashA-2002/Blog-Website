@@ -28,7 +28,6 @@ export default function BlogOverview({ data }) {
     pauseOnHover: true,
   };
   const uniqueCategories = new Set();
-  console.log("filterCategory", filterCategory);
   return (
     <section className="blog-overview-section">
       {/* Slider Section Starts */}
@@ -45,7 +44,6 @@ export default function BlogOverview({ data }) {
             day: "numeric",
             year: "numeric",
           }).format(dateObject);
-          console.log(blog);
           return (
             <div key={index}>
               <div className="blog-latest-card md:grid md:grid-cols-2">
@@ -262,7 +260,6 @@ export default function BlogOverview({ data }) {
                   year: "numeric",
                 }).format(dateObject);
                 if (filterCategory == featuredUpdate?.fields?.categories) {
-                  console.log(filterCategory == featuredUpdate?.fields?.categories);
                   return (
                     <div
                       key={index}

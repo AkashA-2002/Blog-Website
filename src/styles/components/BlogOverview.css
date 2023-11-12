@@ -7,7 +7,7 @@
 }
 
 .blog-overview-section .blog-featured-image {
-    padding: 190px;
+    padding: 220px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,9 +21,9 @@
     right: -1px;
     width: 0;
     height: 15px;
-    border-top: 190px solid transparent;
-    border-bottom: 190px solid transparent;
-    border-right: 200px solid var(--theme-primary-bgcolor);
+    border-top: 215px solid transparent;
+    border-bottom: 226px solid transparent;
+    border-right: 180px solid var(--theme-primary-bgcolor);
 }
 
 .blog-overview-section .blog-featured-content {
