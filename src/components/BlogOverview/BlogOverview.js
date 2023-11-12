@@ -165,7 +165,7 @@ export default function BlogOverview({ data }) {
                   </Switch>
                 </Switch.Group>
                 <span>
-                  <FontAwesomeIcon icon={faList} />
+                  <i class="fa-solid fa-list"></i>
                 </span>
               </div>
             </div>
@@ -240,13 +240,13 @@ export default function BlogOverview({ data }) {
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
                             <h4>
-                            <Link
-                              aria-label={featuredUpdate?.fields?.blogTitle}
-                              href={`/blog/${featuredUpdate?.fields?.slug}`}
-                            >
-                              {featuredUpdate?.fields?.blogTitle}
-                            </Link>
-                          </h4>
+                              <Link
+                                aria-label={featuredUpdate?.fields?.blogTitle}
+                                href={`/blog/${featuredUpdate?.fields?.slug}`}
+                              >
+                                {featuredUpdate?.fields?.blogTitle}
+                              </Link>
+                            </h4>
                           )}
                           {featuredUpdate?.fields?.miniDescription && (
                             <p className="card-description">
@@ -299,13 +299,13 @@ export default function BlogOverview({ data }) {
                       <div className="card-content">
                         {featuredUpdate?.fields?.blogTitle && (
                           <h4>
-                          <Link
-                            aria-label={featuredUpdate?.fields?.blogTitle}
-                            href={`/blog/${featuredUpdate?.fields?.slug}`}
-                          >
-                            {featuredUpdate?.fields?.blogTitle}
-                          </Link>
-                        </h4>
+                            <Link
+                              aria-label={featuredUpdate?.fields?.blogTitle}
+                              href={`/blog/${featuredUpdate?.fields?.slug}`}
+                            >
+                              {featuredUpdate?.fields?.blogTitle}
+                            </Link>
+                          </h4>
                         )}
                         {featuredUpdate?.fields?.miniDescription && (
                           <p className="card-description">
@@ -336,13 +336,13 @@ export default function BlogOverview({ data }) {
                       <div className="card-content">
                         {featuredUpdate?.fields?.blogTitle && (
                           <h4>
-                          <Link
-                            aria-label={featuredUpdate?.fields?.blogTitle}
-                            href={`/blog/${featuredUpdate?.fields?.slug}`}
-                          >
-                            {featuredUpdate?.fields?.blogTitle}
-                          </Link>
-                        </h4>
+                            <Link
+                              aria-label={featuredUpdate?.fields?.blogTitle}
+                              href={`/blog/${featuredUpdate?.fields?.slug}`}
+                            >
+                              {featuredUpdate?.fields?.blogTitle}
+                            </Link>
+                          </h4>
                         )}
                         {featuredUpdate?.fields?.miniDescription && (
                           <p className="card-description">
