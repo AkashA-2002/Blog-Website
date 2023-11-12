@@ -1,15 +1,14 @@
 import React from "react";
-import { Client } from "../../../ContentfulEntry/ContentfulEntry";
+import { Client } from "../../../../ContentfulEntry/ContentfulEntry";
 import { Layout } from "@/components/Layout/Layout";
 import BlogDetails from "@/components/BlogDetails/BlogDetails";
-import { Fragment } from "react";
 import SocialShare from "@/components/SocialShare/SocialShare";
 
-export default function blogurl({ blogData, blogurl }) {
+export default function movieurl({ blogData, movieurl }) {
   return (
     <>
       {blogData?.map((blog, index) => {
-        if (blog?.fields?.slug === blogurl) {
+        if (blog?.fields?.slug === movieurl) {
           return (
             <Layout key={index}>
               <BlogDetails data={blog} />
@@ -23,11 +22,11 @@ export default function blogurl({ blogData, blogurl }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const blogurl = params?.blogurl;
+  const movieurl = params?.movieurl;
   let url = "";
   const res = await Client?.getEntries({
     content_type: "blogs",
-    "fields.slug": blogurl,
+    "fields.slug": movieurl,
     include: 10,
   });
   const blogTemplateData = res?.items;
@@ -35,7 +34,7 @@ export async function getServerSideProps({ params }) {
   blogTemplateData?.forEach((page) => {
     url = page?.fields?.slug;
   });
-  if (url != blogurl) {
+  if (url != movieurl) {
     return {
       redirect: {
         permanent: false,
@@ -46,7 +45,7 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       blogData: blogTemplateData || null,
-      blogurl: blogurl || null,
+      movieurl: movieurl || null,
     },
   };
 }

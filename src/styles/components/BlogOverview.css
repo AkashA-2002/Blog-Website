@@ -172,4 +172,5 @@
 
 .blog-filter-section .filter-option ul li {
     cursor: pointer;
+    text-transform: capitalize;
 }

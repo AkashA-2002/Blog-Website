@@ -61,7 +61,7 @@ export default function BlogOverview({ data }) {
                     <h1>
                       <Link
                         aria-label={blog?.fields?.blogTitle}
-                        href={`/blog/${blog?.fields?.slug}`}
+                        href={`/blog/${blog?.fields?.categories}/${blog?.fields?.slug}`}
                       >
                         {blog?.fields?.blogTitle}
                       </Link>
@@ -206,7 +206,7 @@ export default function BlogOverview({ data }) {
                             <h4>
                               <Link
                                 aria-label={featuredUpdate?.fields?.blogTitle}
-                                href={`/blog/${featuredUpdate?.fields?.slug}`}
+                                href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
                               >
                                 {featuredUpdate?.fields?.blogTitle}
                               </Link>
@@ -242,7 +242,7 @@ export default function BlogOverview({ data }) {
                             <h4>
                               <Link
                                 aria-label={featuredUpdate?.fields?.blogTitle}
-                                href={`/blog/${featuredUpdate?.fields?.slug}`}
+                                href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
                               >
                                 {featuredUpdate?.fields?.blogTitle}
                               </Link>
@@ -301,7 +301,7 @@ export default function BlogOverview({ data }) {
                           <h4>
                             <Link
                               aria-label={featuredUpdate?.fields?.blogTitle}
-                              href={`/blog/${featuredUpdate?.fields?.slug}`}
+                              href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
                             >
                               {featuredUpdate?.fields?.blogTitle}
                             </Link>
@@ -338,7 +338,7 @@ export default function BlogOverview({ data }) {
                           <h4>
                             <Link
                               aria-label={featuredUpdate?.fields?.blogTitle}
-                              href={`/blog/${featuredUpdate?.fields?.slug}`}
+                              href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
                             >
                               {featuredUpdate?.fields?.blogTitle}
                             </Link>
