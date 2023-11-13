@@ -4,12 +4,13 @@ import { Switch } from "@headlessui/react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import BreadCrumb from "../BreadCrumbs/BreadCrumbs";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CategoryOverview({ data,pageCategory }) {
+export default function CategoryOverview({ data,pageCategory,Location }) {
   const [enabled, setEnabled] = useState(false);
   const [filterCategory, setFilterCategory] = useState("all");
 
@@ -21,6 +22,7 @@ export default function CategoryOverview({ data,pageCategory }) {
       <div className="blog-overview-banner">
         <div className="container">
             <h1>Entertainment</h1>
+            <BreadCrumb Location={Location} />
         </div>
       </div>
 

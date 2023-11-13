@@ -6,7 +6,7 @@ import CategoryOverview from '@/components/CategoryOverview/CategoryOverview';
 export default function sports({blogOverviewData, seoData}) {
   return (
     <Layout seoData={seoData}>
-      <CategoryOverview data={blogOverviewData} pageCategory="sports"/>
+      <CategoryOverview data={blogOverviewData} pageCategory="sports" Location="Sports" />
     </Layout>
   )
 }

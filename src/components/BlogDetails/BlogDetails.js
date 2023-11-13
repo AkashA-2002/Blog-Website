@@ -1,7 +1,12 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import BreadCrumb from "../BreadCrumbs/BreadCrumbs";
 
 export default function BlogDetails({ data }) {
+const [scrollY, setScrollY] = useState("")
+
   const featuredImage = data?.fields?.featuredImage?.fields?.file?.url;
   const bannerImage = data?.fields?.blogBannerImage?.fields?.file?.url;
   const maintenanceContent = data?.fields?.blogDescription
@@ -16,8 +21,18 @@ export default function BlogDetails({ data }) {
     month: "short",
     year: "numeric",
   }).format(dateObject);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY / 2 );
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  console.log(scrollY);
   return (
-    <div className="blog-details-section">
+    <div className="blog-details-section" style={{ height: "150vh" }}>
       <div
         className="blog-detail-banner"
         style={{
@@ -26,7 +41,7 @@ export default function BlogDetails({ data }) {
           })`,
         }}
       >
-        <div className="banner-content">
+        <div className="banner-content" style={{ transform: `translateY(-${scrollY}px)` }}>
           {data?.fields?.blogTitle && <h1>{data?.fields?.blogTitle}</h1>}
           <p>
             {data?.fields?.categories && (
@@ -38,6 +53,7 @@ export default function BlogDetails({ data }) {
       </div>
       <div className="blog-main-description-wrapper">
         <div className="container">
+        <BreadCrumb Category={data?.fields?.categories} Title={data?.fields?.blogTitle} />
           <div
             className="blog-main-description"
             dangerouslySetInnerHTML={{

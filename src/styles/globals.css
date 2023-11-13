@@ -9,7 +9,7 @@
 @import "../styles/components/CategoryOverview.css";
 @import "../styles/components/BlogDetails.css";
 @import "../styles/components/SocialShare.css";
-
+@import "../styles/components/BreadCrumbs.css";
 
 
 :root {
