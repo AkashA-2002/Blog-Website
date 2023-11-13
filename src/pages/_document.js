@@ -18,6 +18,9 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;500;600;700&display=swap"
           rel="stylesheet"
         />
+        {/* addsense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2393188193287551"
+     crossorigin="anonymous"></script>
       </Head>
       <body>
         <Main />
