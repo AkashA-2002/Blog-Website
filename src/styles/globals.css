@@ -6,6 +6,7 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 @import "../styles/components/BlogOverview.css";
+@import "../styles/components/CategoryOverview.css";
 @import "../styles/components/BlogDetails.css";
 @import "../styles/components/SocialShare.css";
 
