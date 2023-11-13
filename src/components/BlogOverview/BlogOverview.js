@@ -17,7 +17,7 @@ export default function BlogOverview({ data }) {
   const [filterCategory, setFilterCategory] = useState("all");
 
   const latestUpdates = data.slice(0, 3);
-  const featuredUpdates = data.slice(3, data?.length);
+  // const featuredUpdates = data.slice(3, data?.length);
 
   const settings = {
     slidesToShow: 1,
@@ -173,7 +173,7 @@ export default function BlogOverview({ data }) {
           {enabled == true ? (
             <>
               <div className="list-card-wrapper">
-                {featuredUpdates?.map((featuredUpdate, index) => {
+                {data?.map((featuredUpdate, index) => {
                   const featuredImage =
                     featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
                   const bannerImage =
@@ -267,7 +267,7 @@ export default function BlogOverview({ data }) {
             </>
           ) : (
             <div className="md:grid md:grid-cols-3 md:gap-8 grid-card-wrapper">
-              {featuredUpdates?.map((featuredUpdate, index) => {
+              {data?.map((featuredUpdate, index) => {
                 const featuredImage =
                   featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
                 const bannerImage =
@@ -282,6 +282,7 @@ export default function BlogOverview({ data }) {
                   year: "numeric",
                 }).format(dateObject);
                 if (filterCategory == featuredUpdate?.fields?.categories) {
+                  console.log(filterCategory, featuredUpdate?.fields?.categories);
                   return (
                     <div
                       key={index}
