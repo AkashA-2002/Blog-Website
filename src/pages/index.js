@@ -1,24 +1,25 @@
+import BlogOverview from '@/components/BlogOverview/BlogOverview'
 import React from 'react'
-import { Client } from '../../ContentfulEntry/ContentfulEntry';
+import { Client } from "../../ContentfulEntry/ContentfulEntry";
+import { Layout } from '@/components/Layout/Layout';
 
-export default function Home({ ctaSection }) {
-
+export default function blog({blogOverviewData, seoData}) {
   return (
-    <>
-    <h1>Home Page</h1>
-    </>
+    <Layout seoData={seoData}>
+      <BlogOverview data={blogOverviewData}/>
+    </Layout>
   )
 }
 
-export async function getServerSideProps({ res }) {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=10, stale-while-revalidate=59"
-  );
-  const calltoAction = await Client.getEntry("12eBHTof6BCHT5piHvHy6D");
-  return {
-    props: {
-      ctaSection: calltoAction?.fields,
+export async function getServerSideProps() {
+    const res = await Client.getEntries({ content_type: "blogs" });
+    const seo = await Client.getEntry("66IftJNk7Q3PII9mscirYT");
+    const blogData = res?.items;
+    const seoData = seo?.fields;
+    return {
+        props: {
+            blogOverviewData: blogData || null,
+            seoData: seoData || null,
+        }
     }
-  }
 }
