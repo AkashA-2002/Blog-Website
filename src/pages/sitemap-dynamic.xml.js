@@ -5,9 +5,10 @@ function generateSiteMap(serviceData) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${serviceData
       ?.map((id) => {
+        console.log(id);
         return `
        <url>
-           <loc>${`https://checkout-blogs.vercel.app/${id?.fields?.slug}/`}</loc>
+           <loc>${`https://checkout-blogs.vercel.app/blog/${id?.fields?.categories}/${id?.fields?.slug}/`}</loc>
            <lastmod>${id?.sys?.updatedAt}</lastmod>
        </url>
      `;
