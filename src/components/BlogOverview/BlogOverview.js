@@ -195,19 +195,14 @@ export default function BlogOverview({ data }) {
                         key={index}
                         className="md:grid md:grid-cols-12 md:gap-8 card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                       >
-                        <Link
-                          aria-label={featuredUpdate?.fields?.blogTitle}
-                          href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
-                        >
-                          <div
-                            className="card-image col-span-6"
-                            style={{
-                              backgroundImage: `url(
+                        <div
+                          className="card-image col-span-6"
+                          style={{
+                            backgroundImage: `url(
                             https:${featuredImage ? featuredImage : bannerImage}
                           )`,
-                            }}
-                          ></div>
-                        </Link>
+                          }}
+                        ></div>
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
                             <h4>
@@ -236,19 +231,14 @@ export default function BlogOverview({ data }) {
                         key={index}
                         className="md:grid md:grid-cols-12 md:gap-8 card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                       >
-                        <Link
-                          aria-label={featuredUpdate?.fields?.blogTitle}
-                          href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
-                        >
-                          <div
-                            className="card-image col-span-6"
-                            style={{
-                              backgroundImage: `url(
+                        <div
+                          className="card-image col-span-6"
+                          style={{
+                            backgroundImage: `url(
                         https:${featuredImage ? featuredImage : bannerImage}
                       )`,
-                            }}
-                          ></div>
-                        </Link>
+                          }}
+                        ></div>
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
                             <h4>
