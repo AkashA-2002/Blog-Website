@@ -73,6 +73,7 @@ export const Seo = ({ location, data }) => {
           data-react-helmet="true"
         ></meta>
         <link rel="canonical" href={canonicalUrl} />
+        <meta name="google-adsense-account" content="ca-pub-2393188193287551" />
       </Head>
     </>
   );

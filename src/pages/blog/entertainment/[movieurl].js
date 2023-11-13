@@ -23,6 +23,7 @@ export default function movieurl({ blogData, movieurl }) {
 
 export async function getServerSideProps({ params }) {
   const movieurl = params?.movieurl;
+  console.log(movieurl);
   let url = "";
   const res = await Client?.getEntries({
     content_type: "blogs",

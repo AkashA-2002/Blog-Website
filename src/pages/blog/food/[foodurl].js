@@ -4,11 +4,11 @@ import { Layout } from "@/components/Layout/Layout";
 import BlogDetails from "@/components/BlogDetails/BlogDetails";
 import SocialShare from "@/components/SocialShare/SocialShare";
 
-export default function financeurl({ blogData, financeurl }) {
+export default function foodurl({ blogData, foodurl }) {
   return (
     <>
       {blogData?.map((blog, index) => {
-        if (blog?.fields?.slug === financeurl) {
+        if (blog?.fields?.slug === foodurl) {
           return (
             <Layout key={index}>
               <BlogDetails data={blog} />
@@ -22,11 +22,12 @@ export default function financeurl({ blogData, financeurl }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const financeurl = params?.financeurl;
+  const foodurl = params?.foodurl;
+  console.log(foodurl);
   let url = "";
   const res = await Client?.getEntries({
     content_type: "blogs",
-    "fields.slug": financeurl,
+    "fields.slug": foodurl,
     include: 10,
   });
   const blogTemplateData = res?.items;
@@ -34,7 +35,7 @@ export async function getServerSideProps({ params }) {
   blogTemplateData?.forEach((page) => {
     url = page?.fields?.slug;
   });
-  if (url != financeurl) {
+  if (url != foodurl) {
     return {
       redirect: {
         permanent: false,
@@ -45,7 +46,7 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       blogData: blogTemplateData || null,
-      financeurl: financeurl || null,
+      foodurl: foodurl || null,
     },
   };
 }

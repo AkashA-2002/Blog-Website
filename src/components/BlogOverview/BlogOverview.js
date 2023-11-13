@@ -91,8 +91,10 @@ export default function BlogOverview({ data }) {
             <div className="left-featured-card-header">
               <div className="blog-filter-section">
                 <Menu as="div" className="relative inline-block text-left">
-                  <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                    Filter By Categories
+                  <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 capitalize">
+                    {filterCategory === "all"
+                      ? "Filter By Categories"
+                      : filterCategory}
                     <ChevronDownIcon
                       className="-mr-1 h-5 w-5 text-gray-400"
                       aria-hidden="true"
@@ -193,14 +195,19 @@ export default function BlogOverview({ data }) {
                         key={index}
                         className="md:grid md:grid-cols-12 md:gap-8 card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                       >
-                        <div
-                          className="card-image col-span-6"
-                          style={{
-                            backgroundImage: `url(
+                        <Link
+                          aria-label={featuredUpdate?.fields?.blogTitle}
+                          href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                        >
+                          <div
+                            className="card-image col-span-6"
+                            style={{
+                              backgroundImage: `url(
                             https:${featuredImage ? featuredImage : bannerImage}
                           )`,
-                          }}
-                        ></div>
+                            }}
+                          ></div>
+                        </Link>
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
                             <h4>
@@ -229,14 +236,19 @@ export default function BlogOverview({ data }) {
                         key={index}
                         className="md:grid md:grid-cols-12 md:gap-8 card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                       >
-                        <div
-                          className="card-image col-span-6"
-                          style={{
-                            backgroundImage: `url(
+                        <Link
+                          aria-label={featuredUpdate?.fields?.blogTitle}
+                          href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                        >
+                          <div
+                            className="card-image col-span-6"
+                            style={{
+                              backgroundImage: `url(
                         https:${featuredImage ? featuredImage : bannerImage}
                       )`,
-                          }}
-                        ></div>
+                            }}
+                          ></div>
+                        </Link>
                         <div className="card-content col-span-6">
                           {featuredUpdate?.fields?.blogTitle && (
                             <h4>
@@ -282,21 +294,29 @@ export default function BlogOverview({ data }) {
                   year: "numeric",
                 }).format(dateObject);
                 if (filterCategory == featuredUpdate?.fields?.categories) {
-                  console.log(filterCategory, featuredUpdate?.fields?.categories);
+                  console.log(
+                    filterCategory,
+                    featuredUpdate?.fields?.categories
+                  );
                   return (
                     <div
                       key={index}
                       className="card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                     >
-                      <Image
-                        className="card-image"
-                        src={`https:${
-                          featuredImage ? featuredImage : bannerImage
-                        }`}
-                        width={450}
-                        height={350}
-                        alt={featuredUpdate?.fields?.blogTitle}
-                      />
+                      <Link
+                        aria-label={featuredUpdate?.fields?.blogTitle}
+                        href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                      >
+                        <Image
+                          className="card-image"
+                          src={`https:${
+                            featuredImage ? featuredImage : bannerImage
+                          }`}
+                          width={450}
+                          height={350}
+                          alt={featuredUpdate?.fields?.blogTitle}
+                        />
+                      </Link>
                       <div className="card-content">
                         {featuredUpdate?.fields?.blogTitle && (
                           <h4>
@@ -325,15 +345,20 @@ export default function BlogOverview({ data }) {
                       key={index}
                       className="card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                     >
-                      <Image
-                        className="card-image"
-                        src={`https:${
-                          featuredImage ? featuredImage : bannerImage
-                        }`}
-                        width={450}
-                        height={350}
-                        alt={featuredUpdate?.fields?.blogTitle}
-                      />
+                      <Link
+                        aria-label={featuredUpdate?.fields?.blogTitle}
+                        href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                      >
+                        <Image
+                          className="card-image"
+                          src={`https:${
+                            featuredImage ? featuredImage : bannerImage
+                          }`}
+                          width={450}
+                          height={350}
+                          alt={featuredUpdate?.fields?.blogTitle}
+                        />
+                      </Link>
                       <div className="card-content">
                         {featuredUpdate?.fields?.blogTitle && (
                           <h4>
