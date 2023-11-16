@@ -32,14 +32,14 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
-            <span>Checkout Blog</span>
+          <Link href="/" className="-m-1.5 p-1.5">
+            <span>Checkout Blogs</span>
             {/* <img
               className="h-8 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
             /> */}
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -52,9 +52,9 @@ export default function Header() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a href="/" className="text-sm font-semibold leading-6 text-gray-900">
+          <Link href="/" className="text-sm font-semibold leading-6 text-gray-900">
             Home
-          </a>
+          </Link>
 
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
@@ -76,20 +76,20 @@ export default function Header() {
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-56 rounded-xl bg-white p-2 shadow-lg ring-1 ring-gray-900/5">
                 {company.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className="block rounded-lg px-3 py-2 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </Popover.Panel>
             </Transition>
           </Popover>
-          {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          {/* <Link href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Contact
-          </a> */}
+          </Link> */}
         </Popover.Group>
       </nav>
       <Dialog
@@ -101,14 +101,14 @@ export default function Header() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
+            <Link href="#" className="-m-1.5 p-1.5">
+              <span>Checkout Blogs</span>
+              {/* <img
                 className="h-8 w-auto"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt=""
-              />
-            </a>
+              /> */}
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -121,12 +121,12 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <a
+                <Link
                   href="/"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Home
-                </a>
+                </Link>
                 <Disclosure as="div" className="-mx-3">
                   {({ open }) => (
                     <>
@@ -155,12 +155,12 @@ export default function Header() {
                     </>
                   )}
                 </Disclosure>
-                {/* <a
+                {/* <Link
                   href="/"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Contact
-                </a> */}
+                </Link> */}
               </div>
             </div>
           </div>
