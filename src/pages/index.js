@@ -13,7 +13,7 @@ export default function blog({blogOverviewData, seoData}) {
 
 export async function getServerSideProps() {
     const res = await Client.getEntries({ content_type: "blogs" });
-    const seo = await Client.getEntry("66IftJNk7Q3PII9mscirYT");
+    const seo = await Client.getEntry("1nQIbLQauGOin6p2I0Hw8e");
     const blogData = res?.items;
     const seoData = seo?.fields;
     return {

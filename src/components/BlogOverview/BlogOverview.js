@@ -268,7 +268,7 @@ export default function BlogOverview({ data }) {
               </div>
             </>
           ) : (
-            <div className="md:grid md:grid-cols-3 md:gap-8 grid-card-wrapper">
+            <div className="md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-8 grid-card-wrapper">
               {data?.map((featuredUpdate, index) => {
                 const featuredImage =
                   featuredUpdate?.fields?.featuredImage?.fields?.file?.url;

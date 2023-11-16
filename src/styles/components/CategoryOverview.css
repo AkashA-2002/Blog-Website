@@ -169,16 +169,3 @@
 }
 
 /* list-card-wrapper starts */
-
-.blog-filter-section {
-    margin-right: 70px;
-}
-
-.blog-filter-section .filter-option {
-    padding: 5px 18px;
-}
-
-.blog-filter-section .filter-option ul li {
-    cursor: pointer;
-    text-transform: capitalize;
-}
