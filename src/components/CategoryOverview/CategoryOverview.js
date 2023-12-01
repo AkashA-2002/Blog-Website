@@ -10,7 +10,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CategoryOverview({ data,pageCategory,Location }) {
+export default function CategoryOverview({ data,pageCategory,Location, title }) {
   const [enabled, setEnabled] = useState(false);
   const [filterCategory, setFilterCategory] = useState("all");
 
@@ -21,7 +21,7 @@ export default function CategoryOverview({ data,pageCategory,Location }) {
     <section className="blog-category-overview-section">
       <div className="blog-overview-banner">
         <div className="container">
-            <h1>Entertainment</h1>
+            <h1>{title}</h1>
             <BreadCrumb Location={Location} />
         </div>
       </div>

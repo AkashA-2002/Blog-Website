@@ -6,7 +6,7 @@ import CategoryOverview from '@/components/CategoryOverview/CategoryOverview';
 export default function finance({blogOverviewData, seoData}) {
   return (
     <Layout seoData={seoData}>
-      <CategoryOverview data={blogOverviewData} pageCategory="finance" Location="Finance"/>
+      <CategoryOverview data={blogOverviewData} pageCategory="finance" Location="Finance" title="Finance"/>
     </Layout>
   )
 }
