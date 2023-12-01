@@ -1,6 +1,7 @@
 .blog-details-section .blog-detail-banner {
     background-repeat: no-repeat;
-    background-position: 50%;
+    /* background-position: 50%; */
+    background-position: inherit;
     text-align: center;
     display: flex;
     align-items: center;
