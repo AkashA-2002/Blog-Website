@@ -25,6 +25,10 @@
     position: relative;
 }
 
+.blog-details-section .blog-detail-banner .banner-content h1 {
+    max-width: 800px;
+}
+
 .blog-details-section .blog-detail-banner .banner-content p {
     font-size: 14px;
 }
