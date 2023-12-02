@@ -52,11 +52,8 @@
 .blog-details-section table tr th,
 .blog-details-section table tr td {
     padding: 1rem;
-    text-transform: capitalize;
-}
-
-.blog-details-section table tr {
     border: 1px solid #d3d3d3;
+    text-transform: capitalize;
 }
 
 .blog-details-section table tr th {
