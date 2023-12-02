@@ -15,6 +15,7 @@ function classNames(...classes) {
 export default function BlogOverview({ data }) {
   const [enabled, setEnabled] = useState(false);
   const [filterCategory, setFilterCategory] = useState("all");
+  const [loadMore, setLoadMore] = useState(3);
 
   const latestUpdates = data.slice(0, 3);
   // const featuredUpdates = data.slice(3, data?.length);
@@ -29,6 +30,13 @@ export default function BlogOverview({ data }) {
     pauseOnHover: true,
   };
   const uniqueCategories = new Set();
+
+  // Load More button
+
+  const handleClick = () => {
+    setLoadMore(loadMore + 3);
+  };
+
   return (
     <section className="blog-overview-section">
       {/* Slider Section Starts */}
@@ -175,7 +183,7 @@ export default function BlogOverview({ data }) {
           {enabled == true ? (
             <>
               <div className="list-card-wrapper">
-                {data?.map((featuredUpdate, index) => {
+                {data?.slice(0, loadMore).map((featuredUpdate, index) => {
                   const featuredImage =
                     featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
                   const bannerImage =
@@ -268,109 +276,121 @@ export default function BlogOverview({ data }) {
               </div>
             </>
           ) : (
-            <div className="md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-8 grid-card-wrapper">
-              {data?.map((featuredUpdate, index) => {
-                const featuredImage =
-                  featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
-                const bannerImage =
-                  featuredUpdate?.fields?.blogBannerImage?.fields?.file?.url;
-                // Convert to Date object
-                const dateObject = new Date(featuredUpdate?.sys?.createdAt);
+            <>
+              <div className="md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-8 grid-card-wrapper">
+                {data?.slice(0, loadMore)?.map((featuredUpdate, index) => {
+                  const featuredImage =
+                    featuredUpdate?.fields?.featuredImage?.fields?.file?.url;
+                  const bannerImage =
+                    featuredUpdate?.fields?.blogBannerImage?.fields?.file?.url;
+                  // Convert to Date object
+                  const dateObject = new Date(featuredUpdate?.sys?.createdAt);
 
-                // Format the date
-                const formattedDate = new Intl.DateTimeFormat("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                }).format(dateObject);
-                if (filterCategory == featuredUpdate?.fields?.categories) {
-                  return (
-                    <div
-                      key={index}
-                      className="card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
-                    >
-                      <Link
-                        aria-label={featuredUpdate?.fields?.blogTitle}
-                        href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                  // Format the date
+                  const formattedDate = new Intl.DateTimeFormat("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  }).format(dateObject);
+                  if (filterCategory == featuredUpdate?.fields?.categories) {
+                    return (
+                      <div
+                        key={index}
+                        className="card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                       >
-                        <Image
-                          className="card-image"
-                          src={`https:${
-                            featuredImage ? featuredImage : bannerImage
-                          }`}
-                          width={450}
-                          height={350}
-                          alt={featuredUpdate?.fields?.blogTitle}
-                        />
-                      </Link>
-                      <div className="card-content">
-                        {featuredUpdate?.fields?.blogTitle && (
-                          <h4>
-                            <Link
-                              aria-label={featuredUpdate?.fields?.blogTitle}
-                              href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
-                            >
-                              {featuredUpdate?.fields?.blogTitle}
-                            </Link>
-                          </h4>
-                        )}
-                        {featuredUpdate?.fields?.miniDescription && (
-                          <p className="card-description">
-                            {featuredUpdate?.fields?.miniDescription}
-                          </p>
-                        )}
-                        <div className="published-date">
-                          <p>{formattedDate}</p>
+                        <Link
+                          aria-label={featuredUpdate?.fields?.blogTitle}
+                          href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                        >
+                          <Image
+                            className="card-image"
+                            src={`https:${
+                              featuredImage ? featuredImage : bannerImage
+                            }`}
+                            width={450}
+                            height={350}
+                            alt={featuredUpdate?.fields?.blogTitle}
+                          />
+                        </Link>
+                        <div className="card-content">
+                          {featuredUpdate?.fields?.blogTitle && (
+                            <h4>
+                              <Link
+                                aria-label={featuredUpdate?.fields?.blogTitle}
+                                href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                              >
+                                {featuredUpdate?.fields?.blogTitle}
+                              </Link>
+                            </h4>
+                          )}
+                          {featuredUpdate?.fields?.miniDescription && (
+                            <p className="card-description">
+                              {featuredUpdate?.fields?.miniDescription}
+                            </p>
+                          )}
+                          <div className="published-date">
+                            <p>{formattedDate}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                } else if (filterCategory == "all") {
-                  return (
-                    <div
-                      key={index}
-                      className="card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
-                    >
-                      <Link
-                        aria-label={featuredUpdate?.fields?.blogTitle}
-                        href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                    );
+                  } else if (filterCategory == "all") {
+                    return (
+                      <div
+                        key={index}
+                        className="card-wrapper overflow-hidden rounded-2xl border border-gray300 shadow-lg"
                       >
-                        <Image
-                          className="card-image"
-                          src={`https:${
-                            featuredImage ? featuredImage : bannerImage
-                          }`}
-                          width={450}
-                          height={350}
-                          alt={featuredUpdate?.fields?.blogTitle}
-                        />
-                      </Link>
-                      <div className="card-content">
-                        {featuredUpdate?.fields?.blogTitle && (
-                          <h4>
-                            <Link
-                              aria-label={featuredUpdate?.fields?.blogTitle}
-                              href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
-                            >
-                              {featuredUpdate?.fields?.blogTitle}
-                            </Link>
-                          </h4>
-                        )}
-                        {featuredUpdate?.fields?.miniDescription && (
-                          <p className="card-description">
-                            {featuredUpdate?.fields?.miniDescription}
-                          </p>
-                        )}
-                        <div className="published-date">
-                          <p>{formattedDate}</p>
+                        <Link
+                          aria-label={featuredUpdate?.fields?.blogTitle}
+                          href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                        >
+                          <Image
+                            className="card-image"
+                            src={`https:${
+                              featuredImage ? featuredImage : bannerImage
+                            }`}
+                            width={450}
+                            height={350}
+                            alt={featuredUpdate?.fields?.blogTitle}
+                          />
+                        </Link>
+                        <div className="card-content">
+                          {featuredUpdate?.fields?.blogTitle && (
+                            <h4>
+                              <Link
+                                aria-label={featuredUpdate?.fields?.blogTitle}
+                                href={`/blog/${featuredUpdate?.fields?.categories}/${featuredUpdate?.fields?.slug}`}
+                              >
+                                {featuredUpdate?.fields?.blogTitle}
+                              </Link>
+                            </h4>
+                          )}
+                          {featuredUpdate?.fields?.miniDescription && (
+                            <p className="card-description">
+                              {featuredUpdate?.fields?.miniDescription}
+                            </p>
+                          )}
+                          <div className="published-date">
+                            <p>{formattedDate}</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                } else {
-                  return null;
-                }
-              })}
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
+              </div>
+            </>
+          )}
+          {loadMore < data?.length && (
+            <div className="load-more-button">
+              <button
+                class="text-center py-2 px-4 border border-gray-400 rounded shadow"
+                onClick={handleClick}
+              >
+                Load More
+              </button>
             </div>
           )}
         </div>

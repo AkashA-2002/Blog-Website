@@ -41,6 +41,7 @@
 .blog-overview-section .blog-featured-content .published-date {
     margin-top: 12px;
     font-size: 15px;
+    text-align: right;
 }
 
 .blog-overview-section .slick-slider button.slick-next {
@@ -145,6 +146,23 @@
 
 .blog-overview-section .featured-card-header .toggle-option {
     margin: 0 15px;
+}
+
+.load-more-button {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.load-more-button button {
+    color: #fff;
+    font-weight: bold;
+    background-color: #006680;
+    transition: 0.4s ease-in-out;
+}
+
+.load-more-button button:hover {
+    color: #006680;
+    background-color: #fff;
 }
 
 /* list-card-wrapper starts */
