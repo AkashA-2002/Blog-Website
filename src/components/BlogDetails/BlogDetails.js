@@ -32,7 +32,7 @@ const [scrollY, setScrollY] = useState("")
   }, []);
   console.log(scrollY);
   return (
-    <div className="blog-details-section" style={{ height: "150vh" }}>
+    <div className="blog-details-section">
       <div
         className="blog-detail-banner"
         style={{
