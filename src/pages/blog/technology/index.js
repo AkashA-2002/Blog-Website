@@ -6,7 +6,7 @@ import CategoryOverview from '@/components/CategoryOverview/CategoryOverview';
 export default function technology({blogOverviewData, seoData}) {
   return (
     <Layout seoData={seoData}>
-      <CategoryOverview data={blogOverviewData} pageCategory="Technology" Location="Technology" title="Technology" />
+      <CategoryOverview data={blogOverviewData} pageCategory="technology" Location="Technology" title="Technology" />
     </Layout>
   )
 }
