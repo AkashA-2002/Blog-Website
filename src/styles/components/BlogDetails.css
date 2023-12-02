@@ -27,7 +27,9 @@
 }
 
 .blog-details-section .blog-detail-banner .banner-content h1 {
-    max-width: 800px;
+    max-width: 850px;
+    padding: 0 20px;
+    margin-bottom: 15px;
 }
 
 .blog-details-section .blog-detail-banner .banner-content p {
