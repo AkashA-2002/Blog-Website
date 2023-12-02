@@ -10,7 +10,7 @@ export default function foodurl({ blogData, foodurl }) {
       {blogData?.map((blog, index) => {
         if (blog?.fields?.slug === foodurl) {
           return (
-            <Layout key={index}>
+            <Layout seoData={blog?.fields} key={index}>
               <BlogDetails data={blog} />
               <SocialShare data={blog}/>
             </Layout>
@@ -23,7 +23,6 @@ export default function foodurl({ blogData, foodurl }) {
 
 export async function getServerSideProps({ params }) {
   const foodurl = params?.foodurl;
-  console.log(foodurl);
   let url = "";
   const res = await Client?.getEntries({
     content_type: "blogs",

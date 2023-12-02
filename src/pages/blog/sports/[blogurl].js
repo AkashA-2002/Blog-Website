@@ -11,7 +11,7 @@ export default function blogurl({ blogData, blogurl }) {
       {blogData?.map((blog, index) => {
         if (blog?.fields?.slug === blogurl) {
           return (
-            <Layout key={index}>
+            <Layout seoData={blog?.fields} key={index}>
               <BlogDetails data={blog} />
               <SocialShare data={blog}/>
             </Layout>

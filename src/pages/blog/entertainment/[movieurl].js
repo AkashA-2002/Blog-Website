@@ -10,7 +10,7 @@ export default function movieurl({ blogData, movieurl }) {
       {blogData?.map((blog, index) => {
         if (blog?.fields?.slug === movieurl) {
           return (
-            <Layout key={index}>
+            <Layout seoData={blog?.fields} key={index}>
               <BlogDetails data={blog} />
               <SocialShare data={blog}/>
             </Layout>
@@ -23,7 +23,6 @@ export default function movieurl({ blogData, movieurl }) {
 
 export async function getServerSideProps({ params }) {
   const movieurl = params?.movieurl;
-  console.log(movieurl);
   let url = "";
   const res = await Client?.getEntries({
     content_type: "blogs",

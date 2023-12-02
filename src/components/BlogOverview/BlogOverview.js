@@ -284,10 +284,6 @@ export default function BlogOverview({ data }) {
                   year: "numeric",
                 }).format(dateObject);
                 if (filterCategory == featuredUpdate?.fields?.categories) {
-                  console.log(
-                    filterCategory,
-                    featuredUpdate?.fields?.categories
-                  );
                   return (
                     <div
                       key={index}

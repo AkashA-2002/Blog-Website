@@ -30,7 +30,6 @@ const [scrollY, setScrollY] = useState("")
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  console.log(scrollY);
   return (
     <div className="blog-details-section">
       <div
