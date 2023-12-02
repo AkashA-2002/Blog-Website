@@ -66,3 +66,9 @@
         overflow-x: scroll;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .blog-details-section .blog-detail-banner .banner-content h1 {
+        font-size: 25px;
+    }
+}
