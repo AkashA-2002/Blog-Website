@@ -39,10 +39,6 @@
     text-transform: uppercase;
 }
 
-.blog-details-section .blog-main-description {
-    overflow-x: scroll;
-}
-
 .blog-details-section table {
     border: 1px solid #e5e7eb;
     table-layout: auto;
@@ -63,4 +59,10 @@
 .blog-details-section table tr th {
     border: 1px solid #0000001a;
     background: #d3d3d3;
+}
+
+@media only screen and (max-width: 1200px) {
+    .blog-details-section .blog-main-description {
+        overflow-x: scroll;
+    }
 }
