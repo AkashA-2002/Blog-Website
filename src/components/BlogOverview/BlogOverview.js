@@ -15,7 +15,7 @@ function classNames(...classes) {
 export default function BlogOverview({ data }) {
   const [enabled, setEnabled] = useState(false);
   const [filterCategory, setFilterCategory] = useState("all");
-  const [loadMore, setLoadMore] = useState(3);
+  const [loadMore, setLoadMore] = useState(6);
 
   const latestUpdates = data.slice(0, 3);
   // const featuredUpdates = data.slice(3, data?.length);
@@ -34,7 +34,7 @@ export default function BlogOverview({ data }) {
   // Load More button
 
   const handleClick = () => {
-    setLoadMore(loadMore + 3);
+    setLoadMore(loadMore + 6);
   };
 
   return (
