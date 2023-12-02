@@ -17,6 +17,7 @@ const company = [
   { name: "News", href: "/blog/news/" },
   { name: "Finance", href: "/blog/finance/" },
   { name: "Entertainment", href: "/blog/entertainment/" },
+  { name: "Technology", href: "/blog/technology/" },
 ];
 
 function classNames(...classes) {

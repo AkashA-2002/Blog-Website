@@ -1,0 +1,52 @@
+import React from "react";
+import { Client } from "../../../../ContentfulEntry/ContentfulEntry";
+import { Layout } from "@/components/Layout/Layout";
+import BlogDetails from "@/components/BlogDetails/BlogDetails";
+import { Fragment } from "react";
+import SocialShare from "@/components/SocialShare/SocialShare";
+
+export default function technologyurl({ blogData, technologyurl }) {
+  return (
+    <>
+      {blogData?.map((blog, index) => {
+        if (blog?.fields?.slug === technologyurl) {
+          return (
+            <Layout seoData={blog?.fields} key={index}>
+              <BlogDetails data={blog} />
+              <SocialShare data={blog}/>
+            </Layout>
+          );
+        }
+      })}
+    </>
+  );
+}
+
+export async function getServerSideProps({ params }) {
+  const technologyurl = params?.technologyurl;
+  let url = "";
+  const res = await Client?.getEntries({
+    content_type: "blogs",
+    "fields.slug": technologyurl,
+    include: 10,
+  });
+  const blogTemplateData = res?.items;
+
+  blogTemplateData?.forEach((page) => {
+    url = page?.fields?.slug;
+  });
+  if (url != technologyurl) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/404",
+      },
+    };
+  }
+  return {
+    props: {
+      blogData: blogTemplateData || null,
+      technologyurl: technologyurl || null,
+    },
+  };
+}
