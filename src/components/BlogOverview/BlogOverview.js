@@ -66,8 +66,8 @@ export default function BlogOverview({ data }) {
                     })`,
                   }}
                 ></div>
+                <Suspense fallback={<Loading />}>
                 <div className="blog-featured-content">
-                  <ErrorBoundary fallback={<Loading />}>
                     <h1>
                       <Link
                         aria-label={blog?.fields?.blogTitle}
@@ -76,7 +76,7 @@ export default function BlogOverview({ data }) {
                         {blog?.field.blogTitle}
                       </Link>
                     </h1>
-                  </ErrorBoundary>
+                  
                   {blog?.fields?.miniDescription && (
                     <p className="description">
                       {blog?.fields?.miniDescription}
@@ -84,6 +84,7 @@ export default function BlogOverview({ data }) {
                   )}
                   <p className="published-date">{formattedDate}</p>
                 </div>
+                </Suspense>
               </div>
             </div>
           );
