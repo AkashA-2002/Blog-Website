@@ -73,7 +73,7 @@ export default function BlogOverview({ data }) {
                         aria-label={blog?.fields?.blogTitle}
                         href={`/blog/${blog?.fields?.categories}/${blog?.fields?.slug}`}
                       >
-                        {blog?.field.blogTitle}
+                        {blog?.fields?.blogTitle}
                       </Link>
                     </h1>
                   
