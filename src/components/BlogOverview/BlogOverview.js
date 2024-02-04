@@ -66,7 +66,6 @@ export default function BlogOverview({ data }) {
                     })`,
                   }}
                 ></div>
-                <Suspense fallback={<Loading />}>
                 <div className="blog-featured-content">
                     <h1>
                       <Link
@@ -84,7 +83,6 @@ export default function BlogOverview({ data }) {
                   )}
                   <p className="published-date">{formattedDate}</p>
                 </div>
-                </Suspense>
               </div>
             </div>
           );

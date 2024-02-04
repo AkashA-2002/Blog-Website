@@ -1,5 +1,8 @@
 module.exports = {
   trailingSlash: true,
+  experimental: {
+    ppr: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -8,9 +11,6 @@ module.exports = {
         pathname: "**",
       },
     ],
-  },
-  experimental: {
-    ppr: true,
   },
   async headers() {
     return [

@@ -1,12 +1,15 @@
 import BlogOverview from '@/components/BlogOverview/BlogOverview'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Client } from "../../ContentfulEntry/ContentfulEntry";
 import { Layout } from '@/components/Layout/Layout';
+import Loading from '@/components/Loading/Loading';
 
 export default function blog({blogOverviewData, seoData}) {
   return (
     <Layout seoData={seoData}>
+      <Suspense fallback={<Loading />}>
       <BlogOverview data={blogOverviewData}/>
+      </Suspense>
     </Layout>
   )
 }
