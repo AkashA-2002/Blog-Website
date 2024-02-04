@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Slider from "react-slick";
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, Suspense } from "react";
 import { Switch } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import Loading from "../Loading/Loading";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -65,16 +67,16 @@ export default function BlogOverview({ data }) {
                   }}
                 ></div>
                 <div className="blog-featured-content">
-                  {blog?.fields?.blogTitle && (
+                  <ErrorBoundary fallback={<Loading />}>
                     <h1>
                       <Link
                         aria-label={blog?.fields?.blogTitle}
                         href={`/blog/${blog?.fields?.categories}/${blog?.fields?.slug}`}
                       >
-                        {blog?.fields?.blogTitle}
+                        {blog?.field.blogTitle}
                       </Link>
                     </h1>
-                  )}
+                  </ErrorBoundary>
                   {blog?.fields?.miniDescription && (
                     <p className="description">
                       {blog?.fields?.miniDescription}
