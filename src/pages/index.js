@@ -20,7 +20,6 @@ export async function getServerSideProps() {
         props: {
             blogOverviewData: blogData || null,
             seoData: seoData || null,
-        },
-        revalidate: 1,
+        }
     }
 }
